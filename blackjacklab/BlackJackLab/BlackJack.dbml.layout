@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BlackJack">
+  <DataContextMoniker Name="/BlackJackDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f710f83a-a939-4e53-8983-7be988bad6a8" absoluteBounds="6, 1.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BlackJackDataContext/CardInHand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8117293-5fee-4fe1-ba04-9c28921427c9" absoluteBounds="6.015, 1.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56ba5d4d-f86a-465a-8990-3f8613bd0025" absoluteBounds="3.125, 1.5, 2, 1.7708968098958335">
+      <DataClassMoniker Name="/BlackJackDataContext/Card" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3df9b8f8-683b-4eec-9ec2-b7d77399a2ed" absoluteBounds="3.14, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b226187b-4c30-4dd8-be29-4c1d69ea66bc" absoluteBounds="5.875, 3.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/BlackJackDataContext/CardsInDeck" />
+      <nestedChildShapes>
+        <elementListCompartment Id="432f08f3-3dcd-4890-a607-49b586808011" absoluteBounds="5.8900000000000006, 4.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4fc66539-d729-4711-93c2-4b498822cc42" absoluteBounds="1.25, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/BlackJackDataContext/Player" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8a9f52a3-6479-445c-8071-a7e51661761a" absoluteBounds="1.2650000000000001, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 2.28929768880208); (6 : 2.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BlackJackDataContext/Card/Card_CardInHand" />
+      <nodes>
+        <classShapeMoniker Id="56ba5d4d-f86a-465a-8990-3f8613bd0025" />
+        <classShapeMoniker Id="f710f83a-a939-4e53-8983-7be988bad6a8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.125 : 3.20599609375); (5.90625 : 3.20599609375); (5.90625 : 3.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BlackJackDataContext/Card/Card_CardsInDeck" />
+      <nodes>
+        <classShapeMoniker Id="56ba5d4d-f86a-465a-8990-3f8613bd0025" />
+        <classShapeMoniker Id="b226187b-4c30-4dd8-be29-4c1d69ea66bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.25 : 3.78125); (7.96875 : 3.78125); (7.96875 : 3.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BlackJackDataContext/Player/Player_CardInHand" />
+      <nodes>
+        <classShapeMoniker Id="4fc66539-d729-4711-93c2-4b498822cc42" />
+        <classShapeMoniker Id="f710f83a-a939-4e53-8983-7be988bad6a8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="dfe73d52-1dfd-4c2a-b0da-7cac1c786899" absoluteBounds="0.5, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BlackJackDataContext/dealerCard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="254cddbd-3fa4-4fe8-bc5f-89fee063fdfa" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.125 : 1.88064697265625); (2.5 : 1.88064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BlackJackDataContext/Card/Card_dealerCard" />
+      <nodes>
+        <classShapeMoniker Id="56ba5d4d-f86a-465a-8990-3f8613bd0025" />
+        <classShapeMoniker Id="dfe73d52-1dfd-4c2a-b0da-7cac1c786899" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

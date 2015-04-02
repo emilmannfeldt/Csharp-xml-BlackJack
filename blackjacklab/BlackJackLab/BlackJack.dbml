@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\JOAKIM\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\BLACKJACKLAB\BLACKJACKLAB\BLACKJACK.MDF" Class="BlackJackDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;Initial Catalog=&quot;C:\USERS\JOAKIM\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\BLACKJACKLAB\BLACKJACKLAB\BLACKJACK.MDF&quot;;Integrated Security=True" SettingsObjectName="BlackJackLab.Properties.Settings" SettingsPropertyName="C__USERS_JOAKIM_DOCUMENTS_VISUAL_STUDIO_2013_PROJECTS_BLACKJACKLAB_BLACKJACKLAB_BLACKJACK_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CardInHand" Member="CardInHands">
+    <Type Name="CardInHand">
+      <Column Name="cardValue" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="color" Type="System.String" DbType="VarChar(8)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="face" Type="System.String" DbType="VarChar(5)" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="belongsTo" Type="System.Int32" DbType="Int" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Card_CardInHand" Member="Card" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="Card" IsForeignKey="true" />
+      <Association Name="Player_CardInHand" Member="Player" ThisKey="belongsTo" OtherKey="playerPos" Type="Player" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cards" Member="Cards">
+    <Type Name="Card">
+      <Column Name="cardValue" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="color" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="face" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="imagepath" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Card_CardInHand" Member="CardInHands" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="CardInHand" />
+      <Association Name="Card_CardsInDeck" Member="CardsInDecks" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="CardsInDeck" />
+      <Association Name="Card_dealerCard" Member="dealerCard" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="dealerCard" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CardsInDeck" Member="CardsInDecks">
+    <Type Name="CardsInDeck">
+      <Column Name="cardValue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="color" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="face" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="position" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Card_CardsInDeck" Member="Card" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="Card" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Player" Member="Players">
+    <Type Name="Player">
+      <Column Name="playerPos" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cash" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="winStatus" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="bet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Player_CardInHand" Member="CardInHands" ThisKey="playerPos" OtherKey="belongsTo" Type="CardInHand" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dealerCards" Member="dealerCards">
+    <Type Name="dealerCard">
+      <Column Name="cardValue" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="color" Type="System.String" DbType="VarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="face" Type="System.String" DbType="VarChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Card_dealerCard" Member="Card" ThisKey="cardValue,color,face" OtherKey="cardValue,color,face" Type="Card" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
